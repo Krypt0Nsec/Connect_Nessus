@@ -17,13 +17,13 @@ url="https://192.168.1.67:8834/scans"
 sonuc=requests.get(url=url,headers=header,verify=False)
 for i in sonuc.json()['scans']:
     scan_id=i['id']
-    url="https://192.168.1.67:8834/scans/"+str(scan_id)
+    url="https://"Nessus IP":8834/scans/"+str(scan_id)
     tarama=requests.get(url=url, headers=header,verify=False)
     for j in tarama.json()['hosts']:
         try: 
             host_id=j['host_id']
             #14272 shows opened ports
-            url="https://192.168.1.67:8834/scans/"+str(scan_id)+"/host/"+str(host_id)+"/plugins/11219"
+            url="https://"Nessus IP":8834/scans/"+str(scan_id)+"/host/"+str(host_id)+"/plugins/11219"
             IP=requests.get(url=url,headers=header,verify=False)
             for k in IP.json()['outputs']:
                 port=list(k['ports'].keys())[0]
