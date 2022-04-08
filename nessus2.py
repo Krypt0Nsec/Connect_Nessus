@@ -6,7 +6,7 @@ import datetime
 import urllib3
 import socket
 urllib3.disable_warnings()
-header={"X-ApiKeys": "accessKey=57f6504f85fa53dd440004e605b3b45db6d99dbca86448d6e147ff13e3f1989b; secretKey= 7f802004872dc1a1216b83c6efb8735af9d90dfcff48873323354917d6820464;"}
+header={"X-ApiKeys": "accessKey=; secretKey=;"}#Nessus API key
 cikti=subprocess.check_output("dir",shell=True)
 if not "host_discovery.db" in str(cikti):
     print("veritabanı yok ")
