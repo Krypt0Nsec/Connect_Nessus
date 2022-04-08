@@ -8,7 +8,7 @@ url="https://192.168.1.67:8834/scans"
 sonuc=requests.get(url=url,headers=header,verify=False)
 for i in sonuc.json()["scans"]:
     scan_id=i["id"]
-    url="https://192.168.1.67:8834/scans/"+str(i["id"])
+    url="https://"NessusIP":8834/scans/"+str(i["id"])
     sonuc=requests.get(url=url,headers=header,verify=False)
     for i in sonuc.json()["hosts"]:
         try:
@@ -17,7 +17,7 @@ for i in sonuc.json()["scans"]:
             print(IP)
             print(host_id)
             print("================")
-            url="https://192.168.1.67:8834/scans/"+str(scan_id)+"/hosts/"+str(host_id)+"/plugins/11936"
+            url="https://"NessusIP":8834/scans/"+str(scan_id)+"/hosts/"+str(host_id)+"/plugins/11936"
             zafiyet=requests.get(url=url,headers=header,verify=False)
             plugin_output=zafiyet.json()['outputs'][0]['plugin_output']
             print(plugin_output)
